@@ -1,7 +1,21 @@
 import express from "express";
-import { createUser, loginUser } from "../controllers/userController.js";
+import {
+  createUser,
+  loginUser,
+  logoutCurrentUser,
+  getAllUsers,
+} from "../controllers/userController.js";
 const router = express.Router();
 
-router.route("/").post(createUser);
+import {
+  authenticate,
+  authorizedAdmin,
+} from "../middlewares/authMiddleware.js";
+
+router
+  .route("/")
+  .post(createUser)
+  .get(authenticate, authorizedAdmin, getAllUsers);
 router.post("/auth", loginUser);
+router.post("/logout", logoutCurrentUser);
 export default router;
