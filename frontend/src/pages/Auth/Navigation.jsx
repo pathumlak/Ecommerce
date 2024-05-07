@@ -101,7 +101,7 @@ const Navigation = () => {
             className="flex items-center transition-transform hover:translate-x-2"
           >
             <AiOutlineLogin className="mr-2 mt-[3rem]" size={26} />
-            <span className="hidden nav-item-name mt-[3rem]">LogIn</span>
+            <span className="hidden nav-item-name mt-[3rem]">login</span>
           </Link>
         </li>
         <li>
